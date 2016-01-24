@@ -4,7 +4,7 @@ module GoogleBooks
       attr_reader :title, :authors, :publisher, :published_date,
                   :isbn, :isbn_10, :page_count, :categories,
                   :description, :average_rating, :ratings_count,
-                  :covers, :preview_link, :info_link, :id
+                  :covers, :preview_link, :info_link, :id, :language
 
       def initialize(item)
         return if item.nil?
@@ -33,6 +33,7 @@ module GoogleBooks
         @covers = fixup_covers
         @preview_link = @book.previewLink
         @info_link = @book.infoLink
+        @language = @book.language
       end
 
       def build_title(book)
